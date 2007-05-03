@@ -3,7 +3,7 @@
 use strict;
 use CGI qw( :all );
 
-print header();
+print header(), start_html( -title => 'get_ip' );
 
 store_ip() if defined( param( "store" ) );
 
@@ -13,14 +13,15 @@ if ( !-e "ip" ) {
 }
 
 open( FILE, "ip" ) or die $!;
-my $ip = <FILE>;
-chomp( $ip );
+my $text = <FILE>;
+chomp( $text );
 close( FILE );
 
-print "IP address: $ip\n";
+my ( $ip, $time ) = split( "\t", $text );
+print "<pre>IP address: $ip\nStored at $time</pre>", end_html();
 
 sub store_ip {
   open( FILE, "> ip" ) or die $!;
-  print FILE $ENV{REMOTE_ADDR}, "\n";
+  print FILE $ENV{REMOTE_ADDR}, "\t", scalar( localtime() ), "\n";
   close( FILE );
 }
