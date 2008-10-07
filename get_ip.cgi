@@ -3,6 +3,8 @@
 use strict;
 use CGI qw( :all );
 
+# $Id: get_ip.cgi,v 1.3 2008-10-07 18:35:34 mkns Exp $
+
 print header(), start_html( -title => 'get_ip' );
 
 store_ip() if defined( param( "store" ) );
