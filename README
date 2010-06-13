@@ -1,0 +1,7 @@
+These two scripts and associated text file just allow me to find my
+home machine when I need to SSH to it from work.  Since my ISP gives
+me a dynamic IP address, clearly it could be anything.  And while it
+doesn't tend to change very often at all, I also don't take any notice
+of what it is, ever, so on the odd occasion I need to log in to my
+home machine from work, I can just go to my web page and find out the
+IP address.
